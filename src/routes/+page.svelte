@@ -5,9 +5,13 @@
   import DrawSct from './drawing.svelte';
   import InfosSct from './infos.svelte';
   import HomeSct from './home.svelte';
+  import ExportSct from './export.svelte';
+  import MoreSct from './more.svelte';
   import DrawIcon from '../assets/icons/draw.png';
   import HomeIcon from '../assets/icons/home.png';
   import InfoIcon from '../assets/icons/info.png';
+  import MoreIcon from '../assets/icons/more_horiz.png';
+  import UpIcon from '../assets/icons/upgrade.png';
   let selected = 'Home'; // Initiale avec une majuscule, pour correspondre aux valeurs utilisées dans les on:click
   function select(component) {
     selected = component;
@@ -19,11 +23,12 @@
   .App { height: 100vh; width: 100vw; display: flex; flex-direction: column; background-color: var(--color-background); overflow: hidden; }
   .App-content { height: 90vh; width: 100vw; display: flex; flex-direction: column; }
   .App-navbar { height: 10vh; width: 100vw; display: flex; flex-direction: row; align-items: center; justify-content: center; background-color: var(--color-navbar); }
-  .App-navbar-Home, .App-navbar-Infos, .App-navbar-Draw { height: 100%; width: 33vw; display: flex; align-items: center; justify-content: center; }
+  .App-navbar-Home, .App-navbar-Infos, .App-navbar-Draw { height: 100%; width: 20vw; display: flex; align-items: center; justify-content: center; }
   .App-navbar-Home, .App-navbar-Infos, .App-navbar-Draw:hover { cursor: pointer; }
   .App-navbar-Home img, .App-navbar-Infos img, .App-navbar-Draw img { height: 5vh; width: 5vh; margin-right: 1.3vw; transform: scale(1); transition: transform 0.25s ease-in-out; }
   .App-navbar-Home:hover img, .App-navbar-Infos:hover img, .App-navbar-Draw:hover img { transform: scale(1.2); }
   .App-navbar-Home p, .App-navbar-Infos p, .App-navbar-Draw p { font-family: var(--main-font); font-size: 2.75vh; margin: 0; color: var(--color-font); }
+  .active { border-top: 2px solid var(--color-font);}
 </style>
   
 <main>
@@ -35,20 +40,32 @@
         <InfosSct />
       {:else if selected === 'Draw'}
         <DrawSct />
+      {:else if selected === 'Export'}
+        <ExportSct />
+      {:else}
+        <MoreSct />
       {/if}
     </div>
     <div class="App-navbar">
-      <div class="App-navbar-Home" on:click={() => select('Home')}>
+      <div class="App-navbar-Home  {selected === 'Home' ? 'active' : ''}" on:click={() => select('Home')}>
         <img src={HomeIcon} alt="HomeIcon">
         <p>Accueil</p>
       </div>
-      <div class="App-navbar-Infos" on:click={() => select('Infos')}>
+      <div class="App-navbar-Draw {selected === 'Draw' ? 'active' : ''}" on:click={() => select('Draw')}>
+        <img src={DrawIcon} alt="DrawIcon">
+        <p>Croquis</p>
+      </div>
+      <div class="App-navbar-Infos  {selected === 'Infos' ? 'active' : ''}" on:click={() => select('Infos')}>
         <img src={InfoIcon} alt="InfoIcon">
         <p>Infos</p>
       </div>
-      <div class="App-navbar-Draw" on:click={() => select('Draw')}>
-        <img src={DrawIcon} alt="DrawIcon">
-        <p>Croquis</p>
+      <div class="App-navbar-Draw  {selected === 'Export' ? 'active' : ''}" on:click={() => select('Export')}>
+        <img src={UpIcon} alt="DrawIcon">
+        <p>Export</p>
+      </div>
+      <div class="App-navbar-Draw">
+        <img src={MoreIcon} alt="DrawIcon">
+        <p>More</p>
       </div>
     </div>
   </div>    
