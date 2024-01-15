@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import { imageStore } from './imageStore';
     import Img from '../assets/drawings/1.jpg';
     let canvas;
     let undoStack = [];
@@ -39,12 +40,13 @@
             undoStack.push(canvas.toDataURL()); 
             const nextState = redoStack.pop();
             const img = new Image();
-            img.onload = function() {
-                const context = canvas.getContext('2d');
-                context.clearRect(0, 0, canvas.width, canvas.height);
-                context.drawImage(img, 0, 0);
-            };
-            img.src = nextState;
+            imageStore.subscribe(image => {
+                let img = new Image();
+                img.onload = function() {
+                    ctx.drawImage(img, 0, 0);
+                };
+                img.src = image;
+            });
         }
     }
     const changeColor = (color) => {
@@ -86,11 +88,13 @@
       canvas.width = rect.width;
       canvas.height = rect.height;
       ctx.fillStyle = 'rgb(255, 255, 255)';
-      const image = new Image();
-      image.src = Img;
-      image.onload = () => {
-          ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-      };
+      imageStore.subscribe((image) => {
+        const img = new Image();
+        img.src = image;
+        img.onload = () => {
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        };
+      });
       canvas.addEventListener('mousedown', (event) => {
         if (event.button === 0) {
           saveundoStack();
@@ -172,7 +176,7 @@
     .Editor { height: 90vh; width: 100vw; margin: 0; overflow: hidden; background-color: var(--color-background); }
     .Editor-body { width: 100vw; height: 90vh; background-color: var(--color-background); display: flex; flex-direction: row; }
     .Editor-body-navbar { width: 25vw; height: 90vh; background-color: var(--color-navbar); }
-    .Editor-body-Canvas { width: 75vw; height: 90vh; }
+    .Editor-body-Canvas { width: 75vw; height: 90vh; display: flex; justify-content: center; align-items: center; }
     .Editor-canvas-sct { width: 90vh; height: 90vh; }
 </style>
 
