@@ -52,6 +52,7 @@ table {
 
 :root {
 	--color-navbar : #000a0f;
+	--color-button : #052230;
 	--color-editor-navbar :rgb(24, 41, 49);
     --color-background: #031926;
     --color-component: #468189;
