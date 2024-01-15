@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import Img from '../image.jpg';
+    import Img from '../assets/drawings/1.jpg';
     let canvas;
     let undoStack = [];
     let redoStack = [];
@@ -81,25 +81,23 @@
     }
     onMount(() => {
       const ctx = canvas.getContext('2d');
-      const navbarHeight = window.innerHeight * 0.2;
-      const width = (canvas.width = window.innerWidth);
-      const height = (canvas.height = window.innerHeight - navbarHeight);
+      const navbarWidth = window.innerWidth * 0.25;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
       ctx.fillStyle = 'rgb(255, 255, 255)';
       const image = new Image();
       image.src = Img;
       image.onload = () => {
-          ctx.drawImage(image, 0, 0, width, height);
+          ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
       };
-      image.onerror = (error) => {
-  console.error('Erreur lors du chargement de l\'image:', error);
-};
       canvas.addEventListener('mousedown', (event) => {
         if (event.button === 0) {
           saveundoStack();
           isDrawing = true;
           const rect = canvas.getBoundingClientRect();
-          lastX = event.clientX - rect.left;
-          lastY = event.clientY - rect.top;
+          lastX = event.offsetX;
+          lastY = event.offsetY;
           firstX = lastX;
           firstY = lastY;
           console.log(lastX, lastY);
@@ -117,8 +115,8 @@
     canvas.addEventListener('mousemove', (event) => {
         if (isDrawing) {
             const rect = canvas.getBoundingClientRect();
-            const currentX = event.clientX - rect.left;
-            const currentY = event.clientY - rect.top;
+            const currentX = event.offsetX;
+            const currentY = event.offsetY;
             ctx.strokeStyle = currentColor;
             ctx.lineWidth = toolThickness;
             if (currentShape === 'line') {
@@ -172,10 +170,10 @@
 
 <style>
     .Editor { height: 90vh; width: 100vw; margin: 0; overflow: hidden; background-color: var(--color-background); }
-    .Editor-body { width: 100vw; height: 90vh; background-color: var(--color-background); display: flex; flex-direction: column-reverse; }
-    .Editor-body-navbar { width: 100vw; height: 10vh; background-color: var(--color-navbar); }
-    .Editor-body-Canvas { width: 100vw; height: 80vh; }
-    .Editor-canvas-sct { width: 100%; height: 100%; }
+    .Editor-body { width: 100vw; height: 90vh; background-color: var(--color-background); display: flex; flex-direction: row; }
+    .Editor-body-navbar { width: 25vw; height: 90vh; background-color: var(--color-navbar); }
+    .Editor-body-Canvas { width: 75vw; height: 90vh; }
+    .Editor-canvas-sct { width: 90vh; height: 90vh; }
 </style>
 
 <main>
