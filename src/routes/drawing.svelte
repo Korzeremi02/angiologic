@@ -177,17 +177,35 @@
     .Editor { height: 90vh; width: 100vw; margin: 0; overflow: hidden; background-color: var(--color-background); }
     .Editor-body { width: 100vw; height: 90vh; background-color: var(--color-background); display: flex; flex-direction: row; }
     .Editor-body-navbar { width: 25vw; height: 90vh; background-color: var(--color-editor-navbar); }
-    .Editor-body-navbar-logo { width: 100%; height: 20%; display: flex; justify-content: center; align-items: center; }
+    .Editor-body-navbar-logo { width: 100%; height: 15vh; display: flex; justify-content: center; align-items: center; }
     #Editor-logo { width: 90%; height: auto; }
-    .Editor-body-navbar-toolSct { background-color: red; }
-    .Editor-body-navbar-toolSct-title { }
+    .Editor-body-navbar-toolSct { height: 20vh; width: 100%; display: flex; flex-direction: column; justify-content: center;}
+    .Editor-body-navbar-toolSct-title { margin-left: 2vw; }
     .Editor-body-navbar-toolSct-title-text { color: var(--color-font); font-size: 1.5rem; font-family: var(--main-font);}
-    .Editor-body-navbar-textSct { background-color: green; }
-    .Editor-body-navbar-textSct-title { }
+    .Editor-body-navbar-toolSct-Toolkit { display: flex; align-items: center; justify-content: center; margin-top: 2vh; }
+    .Editor-body-navbar-toolSct-Toolkit #Editor-txt { color: var(--color-font); font-size: 0.8rem; font-family: var(--main-font); }
+    .Editor-body-navbar-toolSct-Toolkit select { width: 50%; height: 1.5rem; }
+    .Editor-body-navbar-toolSct-Color { display: flex; align-items: center; justify-content: center; }
+    .Editor-body-navbar-toolSct-Color #Editor-txt { color: var(--color-font); font-size: 0.8rem; font-family: var(--main-font); }
+    .Editor-body-navbar-toolSct-Color input { width: 50%; height: 1.5rem; }
+    .Editor-body-navbar-toolSct-thick { display: flex; align-items: center; justify-content: center; }
+    .Editor-body-navbar-toolSct-thick #Editor-txt { color: var(--color-font); font-size: 0.8rem; font-family: var(--main-font); }
+    .Editor-body-navbar-toolSct-thick input { width: 50%; height: 1.5rem; }
+    .Editor-body-navbar-textSct { height: 20vh; width: 100%; display: flex; justify-content: center; flex-direction: column;}
+    .Editor-body-navbar-textSct-title { margin-left: 2vw; }
     .Editor-body-navbar-textSct-title-text { color: var(--color-font); font-size: 1.5rem; font-family: var(--main-font);}
-    .Editor-body-navbar-settings { background-color: blue; }
-    .Editor-body-navbar-settings-title { }
+    .Editor-body-navbar-textSct-txtTool { display: flex; align-items: center; justify-content: center; }
+    .Editor-body-navbar-textSct-txtTool #Editor-txt { color: var(--color-font); font-size: 0.8rem; font-family: var(--main-font); }
+    .Editor-body-navbar-textSct-txtTool input { width: 50%; height: 1.5rem; }
+    .Editor-body-navbar-textSct-txtSize { display: flex; align-items: center; justify-content: center; }
+    .Editor-body-navbar-textSct-txtSize #Editor-txt { color: var(--color-font); font-size: 0.8rem; font-family: var(--main-font); }
+    .Editor-body-navbar-textSct-txtSize input { width: 50%; height: 1.5rem; }
+    .Editor-body-navbar-textSct-txtColor { display: flex; align-items: center; justify-content: center; }
+    .Editor-body-navbar-textSct-txtColor #Editor-txt { color: var(--color-font); font-size: 0.8rem; font-family: var(--main-font); }
+    .Editor-body-navbar-settings { height: 45vh; width: 100%; display: flex; flex-direction: column;}
+    .Editor-body-navbar-settings-title { margin-left: 2vw; }
     .Editor-body-navbar-settings-title-text { color: var(--color-font); font-size: 1.5rem; font-family: var(--main-font);}
+    .Editor-body-navbar-settings-btn { height: 50%; display: flex; align-items: center; justify-content: space-around; flex-direction: column; }
     .Editor-body-Canvas { width: 75vw; height: 90vh; display: flex; justify-content: center; align-items: center; }
     .Editor-canvas-sct { width: 90vh; height: 90vh; }
 </style>
@@ -201,48 +219,54 @@
             </div>
             <div class="Editor-body-navbar-toolSct">
                 <div class="Editor-body-navbar-toolSct-title">
-                    <p class="Editor-body-navbar-toolSct-title-text">Tools</p>
+                    <p class="Editor-body-navbar-toolSct-title-text">Boîte à outils</p>
                 </div>
                 <div class="Editor-body-navbar-toolSct-Toolkit">
+                    <p id="Editor-txt">Outils : </p>
                     <select bind:value={currentShape} on:change={() => changeShape(currentShape)}>
-                      <option value="erase">Erase</option>
-                      <option value="line">Line</option>
+                      <option value="erase">Gomme</option>
+                      <option value="line">Crayon</option>
                       <option value="rectangle">Rectangle</option>
-                      <option value="circle">Circle</option>
+                      <option value="circle">Cercle</option>
                       <option value="gouache">Gouache</option>
-                      <option value="text">Text</option>
+                      <option value="text">Texte</option>
                     </select>
                 </div>
                 <div class="Editor-body-navbar-toolSct-Color">
+                    <p id="Editor-txt">Couleur : </p>
                     <input type="color" bind:value={currentColor} on:change={() => changeColor(currentColor)} />
                 </div>
                 <div class="Editor-body-navbar-toolSct-thick">
+                    <p id="Editor-txt">Epaisseur : </p>
                     <input type="range" min="1" max="24" bind:value={toolThickness} />
                 </div>
             </div>
             <div class="Editor-body-navbar-textSct">
                 <div class="Editor-body-navbar-textSct-title">
-                    <p class="Editor-body-navbar-textSct-title-text">Text</p>
+                    <p class="Editor-body-navbar-textSct-title-text">Texte</p>
                 </div>
                 <div class="Editor-body-navbar-textSct-txtTool">
+                    <p id="Editor-txt">Texte : </p>
                     <input type="text" bind:value={textValue} placeholder="Entrez du texte ici"/>
                 </div>
                 <div class="Editor-body-navbar-textSct-txtSize">
+                    <p id="Editor-txt">Taille : </p>
                     <input type="number" bind:value={fontSize} min="1" max="100" />
                 </div>
                 <div class="Editor-body-navbar-textSct-txtColor">
+                    <p id="Editor-txt">Couleur : </p>
                     <input type="color" bind:value={textColor} on:change={() => changeBoxColor(textColor)}/>
                 </div>
             </div>
             <div class="Editor-body-navbar-settings">
                 <div class="Editor-body-navbar-settings-title">
-                    <p class="Editor-body-navbar-settings-title-text">Settings</p>
+                    <p class="Editor-body-navbar-settings-title-text">Options</p>
                 </div>
                 <div class="Editor-body-navbar-settings-btn">
-                    <button on:click={() => clearCanvas()}>Clear</button>
-                    <button on:click={saveImage}>Save</button>
-                    <button on:click={redo}>Redo</button>
-                    <button on:click={undo}>Undo</button>
+                    <button on:click={() => clearCanvas()}>Effacer tout</button>
+                    <button on:click={saveImage}>Enregistrer</button>
+                    <button on:click={redo}>Annuler</button>
+                    <button on:click={undo}>Rétablir</button>
                 </div>
             </div>
           </div>

@@ -40,7 +40,7 @@
     <div class="App-navbar">
       <div class="App-navbar-Home" on:click={() => select('Home')}>
         <img src={HomeIcon} alt="HomeIcon">
-        <p>Home</p>
+        <p>Accueil</p>
       </div>
       <div class="App-navbar-Infos" on:click={() => select('Infos')}>
         <img src={InfoIcon} alt="InfoIcon">
@@ -48,7 +48,7 @@
       </div>
       <div class="App-navbar-Draw" on:click={() => select('Draw')}>
         <img src={DrawIcon} alt="DrawIcon">
-        <p>Draw</p>
+        <p>Croquis</p>
       </div>
     </div>
   </div>    
