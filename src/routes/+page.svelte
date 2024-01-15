@@ -3,6 +3,7 @@
   import { goto } from '$app/navigation';
   import { redirect } from '@sveltejs/kit';
   import DrawSct from './drawing.svelte';
+  import InfosSct from './infos.svelte';
   import DrawIcon from '../assets/icons/draw.png'
   import HomeIcon from '../assets/icons/home.png'
   import InfoIcon from '../assets/icons/info.png'
@@ -17,14 +18,17 @@
   .App-navbar-Infos { height: 100%; width: 33vw; }
   .App-navbar-Draw { height: 100%; width: 33vw; }
   #IconSct { display: flex; height: 100%; width: 100%; align-items: center; justify-content: center; }
-  #IconImg { height: 5vh; width: 5vh; margin-right: 1.3vw; }
+  #IconSct:hover { cursor: pointer; }
+  #IconSct:hover #IconImg { cursor: pointer; transition-duration: 0.17s; transform: scale(1.2); transition: transform 0.25s ease-in-out; }
+  #IconImg { height: 5vh; width: 5vh; margin-right: 1.3vw; transform: scale(1); transition: transform 0.25s ease-in-out; }
   #IconText { font-family: var(--main-font) ; font-size: 2.75vh; margin: 0; color: var(--color-font) }
 </style>
   
 <main>
   <div class="App">
     <div class="App-content">
-      <!-- <DrawSct /> -->
+      <!-- <DrawSct />  -->
+      <InfosSct />
     </div>
     <div class="App-navbar">
       <div class="App-navbar-Home" id="IconSct">

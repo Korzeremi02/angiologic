@@ -60,17 +60,17 @@
       currentShape = shape;
     }; 
     const clearCanvas = () => {
-      const ctx = canvas.getContext('2d');
-      const navbarHeight = window.innerHeight * 0.1;
-      const width = (canvas.width = window.innerWidth);
-      const height = (canvas.height = window.innerHeight - navbarHeight);
-      ctx.fillStyle = 'rgb(255, 255, 255)';
-      const image = new Image();
-      image.src = Img;
-      image.onload = () => {
-          ctx.drawImage(image, 0, 0, width, height);
-      };
-      ctx.fillRect(0, 0, width, height);
+        const ctx = canvas.getContext('2d');
+        const navbarHeight = window.innerHeight * 0.2;
+        const width = (canvas.width = window.innerWidth);
+        const height = (canvas.height = window.innerHeight - navbarHeight);
+        ctx.fillStyle = 'rgb(255, 255, 255)';
+        const image = new Image();
+        image.src = Img;
+        image.onload = () => {
+                ctx.drawImage(image, 0, 0, width, height);
+        };
+        ctx.fillRect(0, 0, width, height);
     };
     function saveImage() {
       const dataUrl = canvas.toDataURL('image/png');
@@ -81,7 +81,7 @@
     }
     onMount(() => {
       const ctx = canvas.getContext('2d');
-      const navbarHeight = window.innerHeight * 0.1;
+      const navbarHeight = window.innerHeight * 0.2;
       const width = (canvas.width = window.innerWidth);
       const height = (canvas.height = window.innerHeight - navbarHeight);
       ctx.fillStyle = 'rgb(255, 255, 255)';
@@ -171,11 +171,11 @@
   </script>
 
 <style>
-.Editor { height: 100vh; width: 100vw; margin: 0; overflow: hidden; background-color: var(--color-background); }
-.Editor-body { width: 100vw; height: 100vh; background-color: var(--color-background); display: flex; flex-direction: column-reverse; }
-.Editor-body-navbar { width: 100vw; height: 10vh; background-color: var(--color-navbar); }
-.Editor-body-Canvas { width: 100vw; height: 90vh; }
-.Editor-canvas-sct { width: 100%; height: 100%; }
+    .Editor { height: 90vh; width: 100vw; margin: 0; overflow: hidden; background-color: var(--color-background); }
+    .Editor-body { width: 100vw; height: 90vh; background-color: var(--color-background); display: flex; flex-direction: column-reverse; }
+    .Editor-body-navbar { width: 100vw; height: 10vh; background-color: var(--color-navbar); }
+    .Editor-body-Canvas { width: 100vw; height: 80vh; }
+    .Editor-canvas-sct { width: 100%; height: 100%; }
 </style>
 
 <main>

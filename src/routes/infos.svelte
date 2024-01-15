@@ -1,0 +1,100 @@
+<script>
+    import DefaultProfilePic from '../assets/icons/default-profile-pic.jpg';
+    let selectedImage = null;
+    function handleImageUpload(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            selectedImage = reader.result;
+        };
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
+<style>
+    .Infos { height: 90vh; width: 100vw; margin: 0; overflow: hidden; background-color: var(--color-background); }
+    #InfosFont { font-family: var(--main-font); font-size: 2.75vh; margin: 0; color: var(--color-font); text-align: left;}
+    #InfosFontTitle { font-family: var(--main-font); font-size: 3.2vh; margin: 0; color: var(--color-font); text-align: left; font-weight: 600;}
+    .Infos-content { height: 100%; width: 100%; display: flex; flex-direction: row; }
+    .Infos-patient { height: 100%; width: 50%; }
+    .Infos-patient-mainInfos { height:  100%; width: 100%; display: flex; flex-direction: column;}
+    .Infos-patient-mainInfos-left { height: 100%; width: 75%; display: flex; flex-direction: column; align-items: center; }
+    .Infos-patient-mainInfos-title { height: 10%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .Infos-patient-mainInfos-items { height: 90%; width: 100%; display: flex; flex-direction: row; }
+    .Infos-patient-mainInfos-left-items { height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; }
+    #Input-patient-sct { height: 30%; width: 100%; }
+    .PatientReview { max-width: 100%; min-width: 100%; }
+    #Infos-patient-mainInfos-left-inputSct { height: 10%; width: 80%; display: flex; flex-direction: column; align-items: center; }
+    #Infos-patient-mainInfos-left-inputTextArea { height: auto; max-height: 30%; width: 80%; max-width: 80%; min-width: 80%; display: flex; flex-direction: column; align-items: center; }
+    .Infos-patient-mainInfos-right { height: 100%; width: 25%; }
+    .Infos-patient-mainInfos-right-photoSct { height: 60%; width: 100%; display: flex; flex-direction: column; align-items: center; }
+    .Infos-patient-mainInfos-right-photoSct-img { height: auto; width: 80%; display: flex; flex-direction: column; }
+    .Infos-patient-mainInfos-right-photoSct-input { height: auto; width: 100%; display: flex; flex-direction: column; margin-top: 2vh; }
+    .Infos-doctor { height: 100%; width: 50%; }
+
+</style>
+
+<main>
+    <div class="Infos">
+        <div class="Infos-content">
+            <div class="Infos-patient">
+                <div class="Infos-patient-mainInfos">
+                    <div class="Infos-patient-mainInfos-title">
+                        <p id="InfosFontTitle">Informations du patient</p>
+                    </div>
+                    <div class="Infos-patient-mainInfos-items">
+                        <div class="Infos-patient-mainInfos-left">
+                            <div class="Infos-patient-mainInfos-left-items">
+                                <div class="Infos-patient-mainInfos-left-name" id="Infos-patient-mainInfos-left-inputSct">
+                                    <p id="InfosFont">Nom</p>
+                                    <input type="text" name="PatientName" class="PatientName" id="Input-patient-sct">
+                                </div>
+                                <div class="Infos-patient-mainInfos-left-firstname" id="Infos-patient-mainInfos-left-inputSct">
+                                    <p id="InfosFont">Prénom</p>
+                                    <input type="text" name="PatientFirstname" class="PatientFirstname" id="Input-patient-sct">
+                                </div>
+                                <div class="Infos-patient-mainInfos-left-birthdate" id="Infos-patient-mainInfos-left-inputSct">
+                                    <p id="InfosFont">Date de naissance</p>
+                                    <input type="date" name="PatientBirthdate" class="PatientBirthdate" id="Input-patient-sct">
+                                </div>   
+                                <div class="Infos-patient-mainInfos-left-address" id="Infos-patient-mainInfos-left-inputSct">
+                                    <p id="InfosFont">Adresse</p>
+                                    <input type="text" name="PatientAddress" class="PatientAddress" id="Input-patient-sct">
+                                </div> 
+                                <div class="Infos-patient-mainInfos-left-number" id="Infos-patient-mainInfos-left-inputSct">
+                                    <p id="InfosFont">Numéro de téléphone</p>
+                                    <input type="tel" name="PatientNumber" class="PatientNumber" id="Input-patient-sct">
+                                </div> 
+                                <div class="Infos-patient-mainInfos-left-social" id="Infos-patient-mainInfos-left-inputSct">
+                                    <p id="InfosFont">Numéro de sécurité sociale</p>
+                                    <input type="text" name="PatientSocial" class="PatientSocial" id="Input-patient-sct">
+                                </div>
+                                <div class="Infos-patient-mainInfos-left-review" id="Infos-patient-mainInfos-left-inputTextArea">
+                                    <p id="InfosFont">Remarques du patient</p>
+                                    <textarea name="PatientReview" id="Input-patient-sct" class="PatientReview" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Infos-patient-mainInfos-right">
+                            <div class="Infos-patient-mainInfos-right-photoSct">
+                                <div class="Infos-patient-mainInfos-right-photoSct-img">
+                                    {#if selectedImage}
+                                        <img src={selectedImage} alt="Selected Image" />
+                                    {:else}
+                                        <img src={DefaultProfilePic} id="DefaultPatientPhoto" alt="Patient Photo" />
+                                    {/if}
+                                </div>
+                                <div class="Infos-patient-mainInfos-right-photoSct-input">
+                                    <input type="file" accept="image/*" on:change={handleImageUpload} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="Infos-doctor">
+
+            </div>
+</main>
