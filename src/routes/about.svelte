@@ -14,6 +14,7 @@
     #AboutItemFontV { font-family: var(--main-font); font-size: 4.75vh; margin: 0; color: var(--color-font); margin-left: 2vw; margin-top: 2vh;}
     #AboutItemFont { font-family: var(--main-font); font-size: 2.75vh; margin: 0; color: var(--color-font); margin-left: 2vw; }
     #AboutItemFontAlert { font-family: var(--main-font); font-size: 4.75vh; margin: 0; color: red; margin-left: 2vw; margin-top: 2vh;}
+    #AboutItemFontAlert2 { font-family: var(--main-font); font-size: 4.75vh; margin: 0; color: red; margin-left: 2vw; }
 </style>
 
 <main>
@@ -32,6 +33,7 @@
                     <p id="AboutItemFontV">Version</p>
                     <p id="AboutItemFont">0.1</p>
                     <p id="AboutItemFontAlert">AVERTISSEMENT</p>
+                    <p id="AboutItemFontAlert2">VERSION DE TEST</p>
                     <p id="AboutItemFont">Cette version est une version de test, elle n'est pas destinée à être utilisée en production.</p>
                     <p id="AboutItemFont">De nombreux bugs et fonctionnalités sont à corriger et/ou présents.</p>
                     <p id="AboutItemFont">En cas de relevé de problèmes, merci de bien vouloir en faire part au développeur.</p>
