@@ -33,7 +33,13 @@
     .Infos-patient-mainInfos-right-photoSct-img { height: auto; width: 80%; display: flex; flex-direction: column; }
     .Infos-patient-mainInfos-right-photoSct-input { height: auto; width: 100%; display: flex; flex-direction: column; margin-top: 2vh; }
     .Infos-doctor { height: 100%; width: 50%; }
-
+    .Infos-doctor-mainInfos { height: 100%; width: 100%; display: flex; flex-direction: column; }
+    .Infos-doctor-mainInfos-title { height: 10%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .Infos-doctor-mainInfos-items { height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; }
+    #Input-doctor-sct { height: 30%; width: 100%; }
+    #Infos-doctor-mainInfos-right-inputSct { height: 10%; width: 80%; display: flex; flex-direction: column; align-items: center; }
+    #Infos-doctor-mainInfos-right-inputTextArea {  height: auto; max-height: 30%; width: 80%; max-width: 80%; min-width: 80%; display: flex; flex-direction: column; align-items: center; }
+    .DoctorReview { max-width: 100%; min-width: 100%;  }
 </style>
 
 <main>
@@ -95,6 +101,28 @@
                 </div>
             </div>
             <div class="Infos-doctor">
-
+                <div class="Infos-doctor-mainInfos">
+                    <div class="Infos-doctor-mainInfos-title">
+                        <p id="InfosFontTitle">Informations du médecin</p>
+                    </div>
+                    <div class="Infos-doctor-mainInfos-items">
+                        <div class="Infos-doctor-mainInfos-right-name" id="Infos-doctor-mainInfos-right-inputSct">
+                            <p id="InfosFont">Nom</p>
+                            <input type="text" name="DoctorName" class="DoctorName" id="Input-doctor-sct">
+                        </div>
+                        <div class="Infos-doctor-mainInfos-right-firstname" id="Infos-doctor-mainInfos-right-inputSct">
+                            <p id="InfosFont">Prénom</p>
+                            <input type="text" name="DoctorFirstname" class="DoctorFirstname" id="Input-doctor-sct">
+                        </div>
+                        <div class="Infos-doctor-mainInfos-number" id="Infos-doctor-mainInfos-right-inputSct">
+                            <p id="InfosFont">Numéro de téléphone</p>
+                            <input type="tel" name="DoctorNumber" class="DoctorNumber" id="Input-doctor-sct">
+                        </div>
+                        <div class="Infos-doctor-review" id="Infos-doctor-mainInfos-right-inputTextArea">
+                            <p id="InfosFont">Remarques du médecin</p>
+                            <textarea name="DoctorReview" id="Input-doctor-sct" class="DoctorReview" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
 </main>
