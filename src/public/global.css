@@ -47,6 +47,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
 :root {
 	--color-navbar : #000a0f;
     --color-background: #031926;
@@ -54,4 +57,5 @@ table {
     --color-secondary: #77ACA2;
     --color-primary: #9DBEBB;
     --color-font: #F4E9CD;
+	--main-font: 'Red Hat Text', sans-serif;
 }
