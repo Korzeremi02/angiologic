@@ -41,13 +41,12 @@
             undoStack.push(canvas.toDataURL()); 
             const nextState = redoStack.pop();
             const img = new Image();
-            imageStore.subscribe(image => {
-                let img = new Image();
-                img.onload = function() {
-                    ctx.drawImage(img, 0, 0);
-                };
-                img.src = image;
-            });
+            img.src = nextState;
+            img.onload = function() {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0);
+            }
         }
     }
     const changeColor = (color) => {
@@ -65,15 +64,18 @@
     const clearCanvas = () => {
         const ctx = canvas.getContext('2d');
         const navbarHeight = window.innerHeight * 0.2;
-        const width = (canvas.width = window.innerWidth);
-        const height = (canvas.height = window.innerHeight - navbarHeight);
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
         ctx.fillStyle = 'rgb(255, 255, 255)';
-        const image = new Image();
-        image.src = Img;
-        image.onload = () => {
-                ctx.drawImage(image, 0, 0, width, height);
-        };
-        ctx.fillRect(0, 0, width, height);
+        imageStore.subscribe((image) => {
+            const img = new Image();
+            img.src = image;
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            }
+        })
+        
     };
     function saveImage() {
       const dataUrl = canvas.toDataURL('image/png');
@@ -265,8 +267,8 @@
                 <div class="Editor-body-navbar-settings-btn">
                     <button on:click={() => clearCanvas()}>Effacer tout</button>
                     <button on:click={saveImage}>Enregistrer</button>
-                    <button on:click={redo}>Annuler</button>
-                    <button on:click={undo}>Rétablir</button>
+                    <button on:click={redo}>Rétablir</button>
+                    <button on:click={undo}>Annuler</button>
                 </div>
             </div>
           </div>
