@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import { imageStore } from './imageStore';
     import Img from '../assets/drawings/1.jpg';
+    import Logo from '../assets/icons/logo.png';
     let canvas;
     let undoStack = [];
     let redoStack = [];
@@ -175,7 +176,18 @@
 <style>
     .Editor { height: 90vh; width: 100vw; margin: 0; overflow: hidden; background-color: var(--color-background); }
     .Editor-body { width: 100vw; height: 90vh; background-color: var(--color-background); display: flex; flex-direction: row; }
-    .Editor-body-navbar { width: 25vw; height: 90vh; background-color: var(--color-navbar); }
+    .Editor-body-navbar { width: 25vw; height: 90vh; background-color: var(--color-editor-navbar); }
+    .Editor-body-navbar-logo { width: 100%; height: 20%; display: flex; justify-content: center; align-items: center; }
+    #Editor-logo { width: 90%; height: auto; }
+    .Editor-body-navbar-toolSct { background-color: red; }
+    .Editor-body-navbar-toolSct-title { }
+    .Editor-body-navbar-toolSct-title-text { color: var(--color-font); font-size: 1.5rem; font-family: var(--main-font);}
+    .Editor-body-navbar-textSct { background-color: green; }
+    .Editor-body-navbar-textSct-title { }
+    .Editor-body-navbar-textSct-title-text { color: var(--color-font); font-size: 1.5rem; font-family: var(--main-font);}
+    .Editor-body-navbar-settings { background-color: blue; }
+    .Editor-body-navbar-settings-title { }
+    .Editor-body-navbar-settings-title-text { color: var(--color-font); font-size: 1.5rem; font-family: var(--main-font);}
     .Editor-body-Canvas { width: 75vw; height: 90vh; display: flex; justify-content: center; align-items: center; }
     .Editor-canvas-sct { width: 90vh; height: 90vh; }
 </style>
@@ -184,23 +196,55 @@
     <div class="Editor">
         <div class="Editor-body">
           <div class="Editor-body-navbar">
-            <input type="color" bind:value={currentColor} on:change={() => changeColor(currentColor)} />
-            <select bind:value={currentShape} on:change={() => changeShape(currentShape)}>
-              <option value="erase">Erase</option>
-              <option value="line">Line</option>
-              <option value="rectangle">Rectangle</option>
-              <option value="circle">Circle</option>
-              <option value="gouache">Gouache</option>
-              <option value="text">Text</option>
-            </select>
-            <button on:click={() => clearCanvas()}>Clear</button>
-            <input type="range" min="1" max="24" bind:value={toolThickness} />
-            <input type="text" bind:value={textValue} placeholder="Entrez du texte ici"/>
-            <input type="color" bind:value={textColor} on:change={() => changeBoxColor(textColor)}/>
-            <input type="number" bind:value={fontSize} min="1" max="100" />
-            <button on:click={saveImage}>Save</button>
-            <button on:click={redo}>Redo</button>
-            <button on:click={undo}>Undo</button>
+            <div class="Editor-body-navbar-logo">
+                <img id="Editor-logo" src={Logo} alt="logo" />
+            </div>
+            <div class="Editor-body-navbar-toolSct">
+                <div class="Editor-body-navbar-toolSct-title">
+                    <p class="Editor-body-navbar-toolSct-title-text">Tools</p>
+                </div>
+                <div class="Editor-body-navbar-toolSct-Toolkit">
+                    <select bind:value={currentShape} on:change={() => changeShape(currentShape)}>
+                      <option value="erase">Erase</option>
+                      <option value="line">Line</option>
+                      <option value="rectangle">Rectangle</option>
+                      <option value="circle">Circle</option>
+                      <option value="gouache">Gouache</option>
+                      <option value="text">Text</option>
+                    </select>
+                </div>
+                <div class="Editor-body-navbar-toolSct-Color">
+                    <input type="color" bind:value={currentColor} on:change={() => changeColor(currentColor)} />
+                </div>
+                <div class="Editor-body-navbar-toolSct-thick">
+                    <input type="range" min="1" max="24" bind:value={toolThickness} />
+                </div>
+            </div>
+            <div class="Editor-body-navbar-textSct">
+                <div class="Editor-body-navbar-textSct-title">
+                    <p class="Editor-body-navbar-textSct-title-text">Text</p>
+                </div>
+                <div class="Editor-body-navbar-textSct-txtTool">
+                    <input type="text" bind:value={textValue} placeholder="Entrez du texte ici"/>
+                </div>
+                <div class="Editor-body-navbar-textSct-txtSize">
+                    <input type="number" bind:value={fontSize} min="1" max="100" />
+                </div>
+                <div class="Editor-body-navbar-textSct-txtColor">
+                    <input type="color" bind:value={textColor} on:change={() => changeBoxColor(textColor)}/>
+                </div>
+            </div>
+            <div class="Editor-body-navbar-settings">
+                <div class="Editor-body-navbar-settings-title">
+                    <p class="Editor-body-navbar-settings-title-text">Settings</p>
+                </div>
+                <div class="Editor-body-navbar-settings-btn">
+                    <button on:click={() => clearCanvas()}>Clear</button>
+                    <button on:click={saveImage}>Save</button>
+                    <button on:click={redo}>Redo</button>
+                    <button on:click={undo}>Undo</button>
+                </div>
+            </div>
           </div>
           <div class="Editor-body-Canvas">
             <canvas class="Editor-canvas-sct" bind:this="{canvas}">
