@@ -58,9 +58,9 @@
 </style>
 
 <main>
-    <!-- {#if isLoggedIn} -->
+    {#if isLoggedIn}
           <App />
-    <!-- {:else}
+    {:else}
         <div class="Connexion">
             <div class="Connexion__logo">
                 <img src={Logo} alt="logo" />
@@ -75,5 +75,5 @@
                 </form>
             </div>
         </div>
-    {/if} -->
+    {/if}
 </main>
