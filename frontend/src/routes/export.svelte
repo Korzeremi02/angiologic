@@ -11,23 +11,26 @@
         canvasImage.subscribe(value => {
             canvasImageDoc = value;
         });
-        doc.addImage(LogoPdf, 'JPEG', 10, 10, 100, 20);
+        doc.addImage(LogoPdf, 'JPEG', 10, 10, 120, 20);
         doc.addImage(canvasImageDoc, 'JPEG', 30, 40, 150, 150);
         doc.addPage();
-        doc.text('Informations du docteur :', 3, 20);
-        doc.text('Date de la consultation : ' + $docDateStore, 3, 30);
-        doc.text('Nom du médecin : ' + $docNameStore, 3, 40);
-        doc.text('Prénom du médecin : ' + $docFirstnameStore, 3, 50);
-        doc.text('Numéro du médecin : ' + $docNumberStore, 3, 60);
-        doc.text('Remarques du médecin : ' + $docReviewStore, 3, 70);
-        doc.text('Informations du patient :', 3, 80);
-        doc.text('Nom du patient : ' + $patNameStore, 3, 90);
-        doc.text('Prénom du patient : ' + $patFirstnameStore, 3, 100);
-        doc.text('Date de naissance du patient : ' + $patBirthStore, 3, 110);
-        doc.text('Adresse du patient : ' + $patAddressStore, 3, 120);
-        doc.text('Numéro du patient : ' + $patNumberStore, 3, 130);
-        doc.text('Numéro de sécurité sociale du patient : ' + $patSocialNumberStore, 3, 140);
-        doc.text('Remarques du patient : ' + $patReviewStore, 3, 150);
+        doc.addImage(LogoPdf, 'JPEG', 10, 10, 120, 20);
+        doc.text('Informations du docteur :', 10, 42);
+        doc.text('Date de la consultation : ' + $docDateStore, 10, 52);
+        doc.text('Nom du médecin : ' + $docNameStore, 10, 62);
+        doc.text('Prénom du médecin : ' + $docFirstnameStore, 10, 72);
+        doc.text('Numéro du médecin : ' + $docNumberStore, 10, 82);
+        doc.text('Remarques du médecin : ' + $docReviewStore, 10, 92);
+        doc.addPage();
+        doc.addImage(LogoPdf, 'JPEG', 10, 10, 120, 20);
+        doc.text('Informations du patient :', 10, 42);
+        doc.text('Nom du patient : ' + $patNameStore, 10, 52);
+        doc.text('Prénom du patient : ' + $patFirstnameStore, 10, 62);
+        doc.text('Date de naissance du patient : ' + $patBirthStore, 10, 72);
+        doc.text('Adresse du patient : ' + $patAddressStore, 10, 82);
+        doc.text('Numéro du patient : ' + $patNumberStore, 10, 92);
+        doc.text('Numéro de sécurité sociale du patient : ' + $patSocialNumberStore, 10, 102);
+        doc.text('Remarques du patient : ' + $patReviewStore, 10, 112);
         doc.save('croquis.pdf');
     }
 </script>
