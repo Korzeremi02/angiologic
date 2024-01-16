@@ -48,7 +48,7 @@
     #Infos-doctor-mainInfos-right-inputTextArea {  height: auto; max-height: 30%; width: 80%; max-width: 80%; min-width: 80%; display: flex; flex-direction: column; align-items: center; }
     .DoctorReview { max-width: 100%; min-width: 100%;  }
     .Alert { height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    #InfosFontTitle { font-family: var(--main-font); font-size: 3.75vh; margin: 0; color: var(--color-font); text-align: center; font-weight: 600; color: red;}
+    #InfosFontTitle { font-family: var(--main-font); font-size: 3.75vh; margin: 0; color: var(--color-font); text-align: center; font-weight: 600; color: var(--color-font);}
 </style>
 
 <main>
@@ -69,10 +69,10 @@
             </div>
         </div>
         <div class="InfosBody">
-            <div class="Alert">
+            <!-- <div class="Alert">
                 <p id="InfosFontTitle">Bientôt disponible !</p>
-            </div>
-            <!-- <div class="Infos-content">
+            </div> -->
+            <div class="Infos-content">
                 <div class="Infos-patient">
                     <div class="Infos-patient-mainInfos">
                         <div class="Infos-patient-mainInfos-title">
@@ -157,6 +157,6 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
 </main>

@@ -11,6 +11,7 @@
 </script>
 
 <style>
+    @import "../public/global.css";
     .Home { height: 90vh; width: 100vw; margin: 0; overflow: hidden; background-color: var(--color-background); display: flex; }
     .HomeNavbar { width: 25vw; height: 90vh; background-color: var(--color-editor-navbar);}
     .HomeLogo { height: 15vh; width: 100%; display: flex; justify-content: center; align-items: center; }
@@ -30,6 +31,9 @@
     #GalleryImg { height: 40vh; width: 40vh; }
     #GalleryImg:hover { transform: scale(1.01); }
     #GalleryImg:active { opacity: 0.85;; }
+    ::-webkit-scrollbar-thumb { background-color: var(--color-navbar); height: 1vh; }
+    ::-webkit-scrollbar { width: 100%; height: 2vh; }
+    ::-webkit-scrollbar-track { background-color: var(--scroll-main); }
 </style>
 
 <main>
