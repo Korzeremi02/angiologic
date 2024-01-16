@@ -1,13 +1,41 @@
 <script>
     import Logo from '../assets/icons/logo.png';
+    import LogoPdf from '../assets/icons/logo2.png';
     import { canvasImage } from './store';
+    import { jsPDF } from 'jspdf';
     let isDefault = true;
     import { docDateStore, docNameStore, docFirstnameStore, docNumberStore, docReviewStore, patNameStore, patFirstnameStore, patReviewStore, patBirthStore, patAddressStore, patNumberStore, patSocialNumberStore } from './store.js';
+    function generatePdf() {
+        const doc = new jsPDF();
+        let canvasImageDoc;
+        canvasImage.subscribe(value => {
+            canvasImageDoc = value;
+        });
+        doc.addImage(LogoPdf, 'JPEG', 10, 10, 100, 20);
+        doc.addImage(canvasImageDoc, 'JPEG', 30, 40, 150, 150);
+        doc.addPage();
+        doc.text('Informations du docteur :', 3, 20);
+        doc.text('Date de la consultation : ' + $docDateStore, 3, 30);
+        doc.text('Nom du médecin : ' + $docNameStore, 3, 40);
+        doc.text('Prénom du médecin : ' + $docFirstnameStore, 3, 50);
+        doc.text('Numéro du médecin : ' + $docNumberStore, 3, 60);
+        doc.text('Remarques du médecin : ' + $docReviewStore, 3, 70);
+        doc.text('Informations du patient :', 3, 80);
+        doc.text('Nom du patient : ' + $patNameStore, 3, 90);
+        doc.text('Prénom du patient : ' + $patFirstnameStore, 3, 100);
+        doc.text('Date de naissance du patient : ' + $patBirthStore, 3, 110);
+        doc.text('Adresse du patient : ' + $patAddressStore, 3, 120);
+        doc.text('Numéro du patient : ' + $patNumberStore, 3, 130);
+        doc.text('Numéro de sécurité sociale du patient : ' + $patSocialNumberStore, 3, 140);
+        doc.text('Remarques du patient : ' + $patReviewStore, 3, 150);
+        doc.save('croquis.pdf');
+    }
 </script>
 
 <style>
     .Export { height: 90vh; width: 100vw; margin: 0; overflow: hidden; background-color: var(--color-background); display: flex; }
     .ExportNavBar { width: 25vw; height: 90vh; background-color: var(--color-editor-navbar);}
+    .ExportItems { width: 25vw; height: 6vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
     .ExportLogo { height: 15vh; width: 100%; display: flex; justify-content: center; align-items: center; }
     #Logo { height: auto; width: 90%; }
     .ExportBody { height: 90vh; width: 75vw; display: flex; flex-direction: column; }
@@ -35,6 +63,9 @@
             <div class="ExportLogo">
                 <img id="Logo" src={Logo} alt="Logo" />
             </div>
+            <div class="ExportItems">
+                <button on:click={generatePdf}>Générer PDF</button>
+            </div>
         </div>
         <div class="ExportBody">
             <!-- <div class="ExportTitle">
@@ -47,7 +78,7 @@
                             <p id="ExportTitleFont">Aucun croquis enregistré</p>
                             <p id="ExportDescV">Appuyer sur Envoyer vers export dans Croquis</p>
                         {:else}
-                            <img src={$canvasImage} alt="SketchPreview" width="100%" height="100%"/>
+                            <img src={$canvasImage} alt="SketchPreview" id="canvasImage" width="100%" height="100%"/>
                         {/if}
                     </div>
                     <!-- <iframe src="http://localhost:5000/export" frameborder="0" width="100%" height="100%"></iframe> -->
