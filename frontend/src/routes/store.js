@@ -1,5 +1,14 @@
 import { writable } from "svelte/store";
-export const docDateStore = writable('01-02-2024');
+export const canvasImage = writable("default");
+export const accountInfo = writable({
+    email: '',
+    username: '',
+    firstname: '',
+    lastname: '',
+    password: ''
+});
+export const imageStore = writable('defaultImage.png');
+export const docDateStore = writable('01/02/2024');
 export const docNameStore = writable('Name');
 export const docFirstnameStore = writable('Firstname');
 export const docNumberStore = writable('Number');

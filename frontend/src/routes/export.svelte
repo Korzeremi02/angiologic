@@ -1,7 +1,8 @@
 <script>
     import Logo from '../assets/icons/logo.png';
-    import { docDateStore, docNameStore, docFirstnameStore, docNumberStore, docReviewStore, patNameStore, patFirstnameStore, patReviewStore, patBirthStore, patAddressStore, patNumberStore, patSocialNumberStore } from './docStore.js';
-
+    import { canvasImage } from './store';
+    let isDefault = true;
+    import { docDateStore, docNameStore, docFirstnameStore, docNumberStore, docReviewStore, patNameStore, patFirstnameStore, patReviewStore, patBirthStore, patAddressStore, patNumberStore, patSocialNumberStore } from './store.js';
 </script>
 
 <style>
@@ -13,7 +14,8 @@
     .ExportTitle { height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; }
     #ExportTitleFont { font-family: var(--main-font); font-size: 3.75vh; margin-top: 2vh; color: var(--color-font); font-weight: 600;}
     .ExportPreview { height: 100%; width: 100%; display: flex; flex-direction: row; }
-    .SketchPreview { height: 100%; width: 50%; }
+    .SketchPreview { height: 100%; width: 50%; display: flex; align-items: center; justify-content: center;}
+    .CanvasPreview { height: 60vh; width: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center;}
     .InfosPreview { height: 100%; width: 50%; display: flex; flex-direction: column; overflow-y: scroll;}
     .InfosPreview_items { height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;}
     .InfosPreviewDoctor { height: auto; width: 80%; display: flex; flex-direction: column; margin-top: 2vh;}
@@ -24,6 +26,7 @@
     .PatientItems { height: 100%; width: 100%; display: flex; flex-direction: row; justify-content: space-between;}
     #ItemFont { font-family: var(--main-font); font-size: 2.5vh; margin: 0; color: var(--color-font); font-weight: 600;}
     #ItemResultFont { font-family: var(--main-font); font-size: 2.5vh; margin: 0; color: var(--color-font); font-weight: 400;}
+    #ExportDescV { font-family: var(--main-font); font-size: 2.5vh; margin: 0; color: var(--color-font); font-weight: 400;}
 </style>
 
 <main>
@@ -39,7 +42,15 @@
             </div> -->
             <div class="ExportPreview">
                 <div class="SketchPreview">
-                    <iframe src="http://localhost:5000/export" frameborder="0" width="100%" height="100%"></iframe>
+                    <div class="CanvasPreview">
+                        {#if $canvasImage == 'default'}
+                            <p id="ExportTitleFont">Aucun croquis enregistré</p>
+                            <p id="ExportDescV">Appuyer sur Envoyer vers export dans Croquis</p>
+                        {:else}
+                            <img src={$canvasImage} alt="SketchPreview" width="100%" height="100%"/>
+                        {/if}
+                    </div>
+                    <!-- <iframe src="http://localhost:5000/export" frameborder="0" width="100%" height="100%"></iframe> -->
                 </div>
                 <div class="InfosPreview">
                     <div class="InfosPreview_items">

@@ -1,5 +1,5 @@
 <script>
-    import { imageStore } from "./imageStore.js";
+    import { imageStore } from "./store.js";
     import Img1 from "../assets/drawings/1.jpg";
     import Img2 from "../assets/drawings/2.webp";
     import Img3 from "../assets/drawings/3.webp";

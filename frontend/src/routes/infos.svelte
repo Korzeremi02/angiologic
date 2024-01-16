@@ -1,6 +1,20 @@
 <script>
     import DefaultProfilePic from '../assets/icons/default-profile-pic.jpg';
     import Logo from '../assets/icons/logo.png';
+    import { docDateStore, docFirstnameStore, docNameStore, docNumberStore, docReviewStore, patAddressStore, patBirthStore, patFirstnameStore, patNameStore, patNumberStore, patReviewStore, patSocialNumberStore } from './store.js';
+    let docDate, docFirstname, docName, docNumber, docReview, patAddress, patBirth, patFirstname, patName, patNumber, patReview, patSocialNumber;
+    docDateStore.subscribe(value => docDate = value);
+    docFirstnameStore.subscribe(value => docFirstname = value);
+    docNameStore.subscribe(value => docName = value);
+    docNumberStore.subscribe(value => docNumber = value);
+    docReviewStore.subscribe(value => docReview = value);
+    patAddressStore.subscribe(value => patAddress = value);
+    patBirthStore.subscribe(value => patBirth = value);
+    patFirstnameStore.subscribe(value => patFirstname = value);
+    patNameStore.subscribe(value => patName = value);
+    patNumberStore.subscribe(value => patNumber = value);
+    patReviewStore.subscribe(value => patReview = value);
+    patSocialNumberStore.subscribe(value => patSocialNumber = value);
     let selectedImage = null;
     function handleImageUpload(event) {
         const file = event.target.files[0];
@@ -12,6 +26,18 @@
             reader.readAsDataURL(file);
         }
     }
+    $: docDateStore.set(docDate);
+    $: docFirstnameStore.set(docFirstname);
+    $: docNameStore.set(docName);
+    $: docNumberStore.set(docNumber);
+    $: docReviewStore.set(docReview);
+    $: patAddressStore.set(patAddress);
+    $: patBirthStore.set(patBirth);
+    $: patFirstnameStore.set(patFirstname);
+    $: patNameStore.set(patName);
+    $: patNumberStore.set(patNumber);
+    $: patReviewStore.set(patReview);
+    $: patSocialNumberStore.set(patSocialNumber);
 </script>
 
 <style>
@@ -83,31 +109,31 @@
                                 <div class="Infos-patient-mainInfos-left-items">
                                     <div class="Infos-patient-mainInfos-left-name" id="Infos-patient-mainInfos-left-inputSct">
                                         <p id="InfosFont">Nom</p>
-                                        <input type="text" name="PatientName" class="PatientName" id="Input-patient-sct">
+                                        <input type="text" bind:value={patName} placeholder={$patNameStore} name="PatientName" class="PatientName" id="Input-patient-sct">
                                     </div>
                                     <div class="Infos-patient-mainInfos-left-firstname" id="Infos-patient-mainInfos-left-inputSct">
                                         <p id="InfosFont">Prénom</p>
-                                        <input type="text" name="PatientFirstname" class="PatientFirstname" id="Input-patient-sct">
+                                        <input type="text" bind:value={patFirstname} placeholder={$patFirstnameStore} name="PatientFirstname" class="PatientFirstname" id="Input-patient-sct">
                                     </div>
                                     <div class="Infos-patient-mainInfos-left-birthdate" id="Infos-patient-mainInfos-left-inputSct">
                                         <p id="InfosFont">Date de naissance</p>
-                                        <input type="date" name="PatientBirthdate" class="PatientBirthdate" id="Input-patient-sct">
+                                        <input type="date" bind:value={patBirth} placeholder={$patBirthStore} name="PatientBirthdate" class="PatientBirthdate" id="Input-patient-sct">
                                     </div>   
                                     <div class="Infos-patient-mainInfos-left-address" id="Infos-patient-mainInfos-left-inputSct">
                                         <p id="InfosFont">Adresse</p>
-                                        <input type="text" name="PatientAddress" class="PatientAddress" id="Input-patient-sct">
+                                        <input type="text" bind:value={patAddress} placeholder={$patAddressStore} name="PatientAddress" class="PatientAddress" id="Input-patient-sct">
                                     </div> 
                                     <div class="Infos-patient-mainInfos-left-number" id="Infos-patient-mainInfos-left-inputSct">
                                         <p id="InfosFont">Numéro de téléphone</p>
-                                        <input type="tel" name="PatientNumber" class="PatientNumber" id="Input-patient-sct">
+                                        <input type="tel" bind:value={patNumber} placeholder={$patNumberStore} name="PatientNumber" class="PatientNumber" id="Input-patient-sct">
                                     </div> 
                                     <div class="Infos-patient-mainInfos-left-social" id="Infos-patient-mainInfos-left-inputSct">
                                         <p id="InfosFont">Numéro de sécurité sociale</p>
-                                        <input type="text" name="PatientSocial" class="PatientSocial" id="Input-patient-sct">
+                                        <input type="text" bind:value={patSocialNumber} placeholder={$patSocialNumberStore} name="PatientSocial" class="PatientSocial" id="Input-patient-sct">
                                     </div>
                                     <div class="Infos-patient-mainInfos-left-review" id="Infos-patient-mainInfos-left-inputTextArea">
                                         <p id="InfosFont">Remarques du patient</p>
-                                        <textarea name="PatientReview" id="Input-patient-sct" class="PatientReview" cols="30" rows="10"></textarea>
+                                        <textarea bind:value={patReview} placeholder={$patReviewStore} name="PatientReview" id="Input-patient-sct" class="PatientReview" cols="30" rows="10"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -136,23 +162,23 @@
                         <div class="Infos-doctor-mainInfos-items">
                             <div class="Infos-doctor-mainInfos-right-Date" id="Infos-doctor-mainInfos-right-inputSct">
                                 <p id="InfosFont">Date de la consultation</p>
-                                <input type="date" name="DoctorDate" class="DoctorDate" id="Input-doctor-sct">
+                                <input type="date" bind:value={docDate} placeholder={$docDateStore} name="DoctorDate" class="DoctorDate" id="Input-doctor-sct">
                             </div>
                             <div class="Infos-doctor-mainInfos-right-name" id="Infos-doctor-mainInfos-right-inputSct">
                                 <p id="InfosFont">Nom</p>
-                                <input type="text" name="DoctorName" class="DoctorName" id="Input-doctor-sct">
+                                <input type="text" bind:value={docName} placeholder={$docNameStore} name="DoctorName" class="DoctorName" id="Input-doctor-sct">
                             </div>
                             <div class="Infos-doctor-mainInfos-right-firstname" id="Infos-doctor-mainInfos-right-inputSct">
                                 <p id="InfosFont">Prénom</p>
-                                <input type="text" name="DoctorFirstname" class="DoctorFirstname" id="Input-doctor-sct">
+                                <input type="text" bind:value={docFirstname} placeholder={$docFirstnameStore} name="DoctorFirstname" class="DoctorFirstname" id="Input-doctor-sct">
                             </div>
                             <div class="Infos-doctor-mainInfos-number" id="Infos-doctor-mainInfos-right-inputSct">
                                 <p id="InfosFont">Numéro de téléphone</p>
-                                <input type="tel" name="DoctorNumber" class="DoctorNumber" id="Input-doctor-sct">
+                                <input type="tel" bind:value={docNumber} placeholder={$docNumberStore} name="DoctorNumber" class="DoctorNumber" id="Input-doctor-sct">
                             </div>
                             <div class="Infos-doctor-review" id="Infos-doctor-mainInfos-right-inputTextArea">
                                 <p id="InfosFont">Remarques du médecin</p>
-                                <textarea name="DoctorReview" id="Input-doctor-sct" class="DoctorReview" cols="30" rows="10"></textarea>
+                                <textarea bind:value={docReview} placeholder={$docReviewStore} name="DoctorReview" id="Input-doctor-sct" class="DoctorReview" cols="30" rows="10"></textarea>
                             </div>
                         </div>
                     </div>

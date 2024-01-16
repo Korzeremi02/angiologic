@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { imageStore } from './imageStore';
+    import { canvasImage, imageStore } from './store';
     import Img from '../assets/drawings/1.jpg';
     import Logo from '../assets/icons/logo.png';
     let canvas;
@@ -78,11 +78,16 @@
         
     };
     function saveImage() {
-      const dataUrl = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.href = dataUrl;
-      link.download = 'croquis.png';
-      link.click();
+      // const dataUrl = canvas.toDataURL('image/png');
+      // const link = document.createElement('a');
+      // link.href = dataUrl;
+      // link.download = 'croquis.png';
+      // link.click();
+      updateCanvasImage();
+    }
+    function updateCanvasImage() {
+      canvasImage.set(canvas.toDataURL());
+      console.log(canvasImage);
     }
     onMount(() => {
       const ctx = canvas.getContext('2d');
@@ -266,7 +271,7 @@
                 </div>
                 <div class="Editor-body-navbar-settings-btn">
                     <button on:click={() => clearCanvas()}>Effacer tout</button>
-                    <button on:click={saveImage}>Enregistrer</button>
+                    <button on:click={saveImage}>Envoyef vers Export</button>
                     <button on:click={redo}>Rétablir</button>
                     <button on:click={undo}>Annuler</button>
                 </div>
