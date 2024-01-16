@@ -53,7 +53,7 @@
     .Infos-content { height: 100%; width: 100%; display: flex; flex-direction: row; }
     .Infos-patient { height: 100%; width: 50%; }
     .Infos-patient-mainInfos { height:  100%; width: 100%; display: flex; flex-direction: column;}
-    .Infos-patient-mainInfos-left { height: 100%; width: 75%; display: flex; flex-direction: column; align-items: center; }
+    .Infos-patient-mainInfos-left { height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; }
     .Infos-patient-mainInfos-title { height: 10%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .Infos-patient-mainInfos-items { height: 90%; width: 100%; display: flex; flex-direction: row; }
     .Infos-patient-mainInfos-left-items { height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; }
@@ -61,10 +61,10 @@
     .PatientReview { max-width: 100%; min-width: 100%; }
     #Infos-patient-mainInfos-left-inputSct { height: 10%; width: 80%; display: flex; flex-direction: column; align-items: center; }
     #Infos-patient-mainInfos-left-inputTextArea { height: auto; max-height: 30%; width: 80%; max-width: 80%; min-width: 80%; display: flex; flex-direction: column; align-items: center; }
-    .Infos-patient-mainInfos-right { height: 100%; width: 25%; }
+    /* .Infos-patient-mainInfos-right { height: 100%; width: 25%; }
     .Infos-patient-mainInfos-right-photoSct { height: 60%; width: 100%; display: flex; flex-direction: column; align-items: center; }
     .Infos-patient-mainInfos-right-photoSct-img { height: auto; width: 80%; display: flex; flex-direction: column; }
-    .Infos-patient-mainInfos-right-photoSct-input { height: auto; width: 100%; display: flex; flex-direction: column; margin-top: 2vh; }
+    .Infos-patient-mainInfos-right-photoSct-input { height: auto; width: 100%; display: flex; flex-direction: column; margin-top: 2vh; } */
     .Infos-doctor { height: 100%; width: 50%; }
     .Infos-doctor-mainInfos { height: 100%; width: 100%; display: flex; flex-direction: column; }
     .Infos-doctor-mainInfos-title { height: 10%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="Infos-patient-mainInfos-right">
+                            <!-- <div class="Infos-patient-mainInfos-right">
                                 <div class="Infos-patient-mainInfos-right-photoSct">
                                     <div class="Infos-patient-mainInfos-right-photoSct-img">
                                         {#if selectedImage}
@@ -150,7 +150,7 @@
                                         <input type="file" accept="image/*" on:change={handleImageUpload} />
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,7 @@
         doc.text('Numéro du patient : ' + $patNumberStore, 10, 92);
         doc.text('Numéro de sécurité sociale du patient : ' + $patSocialNumberStore, 10, 102);
         doc.text('Remarques du patient : ' + $patReviewStore, 10, 112);
-        doc.save('croquis.pdf');
+        doc.save('rapport.pdf');
     }
 </script>
 

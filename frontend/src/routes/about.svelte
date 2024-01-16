@@ -13,8 +13,8 @@
     .AboutItems { height: 80vh; width: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; }
     #AboutItemFontV { font-family: var(--main-font); font-size: 4.75vh; margin: 0; color: var(--color-font); margin-left: 2vw; margin-top: 2vh;}
     #AboutItemFont { font-family: var(--main-font); font-size: 2.75vh; margin: 0; color: var(--color-font); margin-left: 2vw; }
-    #AboutItemFontAlert { font-family: var(--main-font); font-size: 4.75vh; margin: 0; color: red; margin-left: 2vw; margin-top: 2vh;}
-    #AboutItemFontAlert2 { font-family: var(--main-font); font-size: 4.75vh; margin: 0; color: red; margin-left: 2vw; }
+    #AboutItemFontAlert { font-family: var(--main-font); font-weight: 700; font-size: 4.75vh; margin: 0; color: red; margin-left: 2vw; margin-top: 2vh;}
+    #AboutItemFontAlert2 { font-family: var(--main-font); font-weight: 200; font-size: 2.75vh; margin: 0; color: red; margin-left: 2vw; }
 </style>
 
 <main>

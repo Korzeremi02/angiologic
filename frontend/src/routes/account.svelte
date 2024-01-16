@@ -34,6 +34,10 @@
     #AccountFont { font-family: var(--main-font); font-size: 2.75vh; margin: 0; color: var(--color-font); margin-top: 2vh; }
     .Account-Body-disc-btn { width: 15vw; height: 5vh; font-family: var(--main-font); font-size: 2.75vh; margin-top: 2vh; }
     .Account-body { height: 90vh; width: 75vw; display: flex; flex-direction: column; }
+    .Alert { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+    .AlertMsg { width: 50%; height: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    #AlertFont { font-family: var(--main-font); font-size: 3.75vh; margin: 0; color: var(--color-font); font-weight: 600; }
+    #AlertFont2 { font-family: var(--main-font); font-size: 2.75vh; margin: 0; color: var(--color-font); font-weight: 400; margin-top: 2vh;}
     .AccountTitle { height: 10vh; width: 100%; display: flex; justify-content: center; align-items: center; }
     #AccountTitleFont { font-family: var(--main-font); font-size: 3.75vh; margin: 0; color: var(--color-font); font-weight: 600; }
     .AccountItems { height: 80vh; width: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; }
@@ -51,7 +55,7 @@
             </div>
         </div>
         <div class="Account-body">
-            <div class="AccountTitle">
+            <!-- <div class="AccountTitle">
                 <p id="AccountTitleFont">Mon compte</p>
             </div>
             <div class="AccountItems">
@@ -76,7 +80,13 @@
                     <input type="text" value={password} placeholder='Nouveau mot de passe' class="Account-Body-disc-btn">
                 </div>
                 <div class="AccountSubmit">
-                    <!-- <input type="button" value="Modifier" class="Account-Body-disc-btn" on:click={handleUpdate}> -->
+                 <input type="button" value="Modifier" class="Account-Body-disc-btn" on:click={handleUpdate}> -->
+                <!-- </div>
+            </div> -->
+            <div class="Alert">
+                <div class="AlertMsg">
+                    <p id="AlertFont">La gestion du compte arrive bientôt !</p>
+                    <p id="AlertFont2">Fonctionnalité en cours de développement</p>
                 </div>
             </div>
         </div>
