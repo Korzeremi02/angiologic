@@ -1,5 +1,28 @@
 <script>
     import Logo from '../assets/icons/logo.png'
+    import axios from 'axios';
+    import { onMount } from 'svelte';
+    let email = '';
+    let username = '';
+    let firstname = '';
+    let lastname = '';
+    let password = '';
+    const fetchAccountInfo = async () => {
+        try {
+            const response = await axios.get(`http://localhost:5000/account/${localStorage.getItem('userId')}`);
+            const user = response.data[0];
+            console.log(user);
+                email = user.email;
+                username = user.username;
+                firstname = user.firstname;
+                lastname = user.lastname;
+        } catch (error) {
+            console.error('Failed to fetch account information', error);
+        }
+    };
+    onMount(async () => {
+        onMount(fetchAccountInfo);
+    });
 </script>
 
 <style>
@@ -34,26 +57,26 @@
             <div class="AccountItems">
                 <div class="AccountEmail">
                     <p id="AccountFont">Email</p>
-                    <input type="text" value="" class="Account-Body-disc-btn">
+                    <input type="text" value={email} placeholder={email} class="Account-Body-disc-btn">
                 </div>
                 <div class="AccountUsername">
                     <p id="AccountFont">Nom d'utilisateur</p>
-                    <input type="text" value="" class="Account-Body-disc-btn">
+                    <input type="text" value={username} placeholder={username} class="Account-Body-disc-btn">
                 </div>
                 <div class="AccountFirstname">
                     <p id="AccountFont">Prénom</p>
-                    <input type="text" value="" class="Account-Body-disc-btn">
+                    <input type="text" value={firstname} placeholder={firstname} class="Account-Body-disc-btn">
                 </div>
                 <div class="AccountLastname">
                     <p id="AccountFont">Nom</p>
-                    <input type="text" value="" class="Account-Body-disc-btn">
+                    <input type="text" value={lastname} placeholder={lastname} class="Account-Body-disc-btn">
                 </div>
                 <div class="AccountPassword">
                     <p id="AccountFont">Mot de passe</p>
-                    <input type="text" value="" class="Account-Body-disc-btn">
+                    <input type="text" value={password} placeholder='Nouveau mot de passe' class="Account-Body-disc-btn">
                 </div>
                 <div class="AccountSubmit">
-                    <input type="button" value="Modifier" class="Account-Body-disc-btn">
+                    <!-- <input type="button" value="Modifier" class="Account-Body-disc-btn" on:click={handleUpdate}> -->
                 </div>
             </div>
         </div>
