@@ -8,6 +8,7 @@
   let email = '';
   let password = '';
   let isLoggedIn = false;
+  let failedConnection = false;
   let userId = '';
 
   async function handleLogin() {
@@ -30,8 +31,15 @@
               console.error(data.error);
           }
       } catch (error) {
+          failedConnection = true;
+          console.log(failedConnection);
           console.error('Error during login:', error);
+          return failedConnection;
       }
+  }
+
+  $: if(failedConnection) {
+      alert('Identifiants de connexion incorrects, merci de bien vouloir réessayer.');
   }
 </script>
 
