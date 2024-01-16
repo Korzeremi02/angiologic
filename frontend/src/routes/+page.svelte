@@ -40,6 +40,7 @@
 
   $: if(failedConnection) {
       alert('Identifiants de connexion incorrects, merci de bien vouloir réessayer.');
+      failedConnection = false;
   }
 </script>
 
