@@ -31,7 +31,8 @@
         doc.text('Numéro du patient : ' + $patNumberStore, 10, 92);
         doc.text('Numéro de sécurité sociale du patient : ' + $patSocialNumberStore, 10, 102);
         doc.text('Remarques du patient : ' + $patReviewStore, 10, 112);
-        doc.save('rapport.pdf');
+        doc.save('rapport-patient-' + $patNameStore + '-' + $patFirstnameStore + '-' + $docDateStore + '.pdf');
+        return doc;
     }
 </script>
 
@@ -67,7 +68,7 @@
                 <img id="Logo" src={Logo} alt="Logo" />
             </div>
             <div class="ExportItems">
-                <button on:click={generatePdf}>Générer PDF</button>
+                <button on:click={generatePdf}>Enregistrer PDF</button>
             </div>
         </div>
         <div class="ExportBody">
