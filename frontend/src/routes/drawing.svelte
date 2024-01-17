@@ -271,7 +271,7 @@
                 </div>
                 <div class="Editor-body-navbar-settings-btn">
                     <button on:click={() => clearCanvas()}>Effacer tout</button>
-                    <button on:click={saveImage}>Envoyef vers Export</button>
+                    <button on:click={saveImage}>Envoyer vers Export</button>
                     <button on:click={redo}>Rétablir</button>
                     <button on:click={undo}>Annuler</button>
                 </div>
