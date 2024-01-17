@@ -1,9 +1,9 @@
 # ANGIOLOGIC
-## React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project status
+![VersionBadge](https://img.shields.io/badge/Version-v0.1-cd3e3d)
+![](https://img.shields.io/badge/Not_ready_for_Prod-cd3e3d)
+## Technologies
+![ReactBadge](https://img.shields.io/badge/ReactJS-087a9f)
+![ViteBadge](https://img.shields.io/badge/Vite-b154fd)
+![NpmBadge](https://img.shields.io/badge/Npm-cd3e3d)
+![NodeBadge](https://img.shields.io/badge/NodeJS-7ab561)
