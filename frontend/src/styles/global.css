@@ -47,6 +47,14 @@ body {
     width: 100vw;
 }
 /* ROOT STYLES */
-:root{
-	
+:root {
+	--color-background:#292B33;
+	--color-component:#4E5261;
+	--color-secondary:#3160FA;
+	--color-primary:#596794;
+	--color-font:#506BC7;
+}
+/* GLOBAL STYLES */
+body {
+	background-color: var(--color-background);
 }

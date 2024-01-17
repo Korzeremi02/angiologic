@@ -1,12 +1,12 @@
-import { useState } from 'react'
 import './styles/global.css'
+import Portail from './components/portail'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <div>
+        <Portail />
       </div>
     </>
   )
