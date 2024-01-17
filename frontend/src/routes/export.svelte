@@ -23,7 +23,7 @@
         doc.text('Numéro du patient : ' + $patNumberStore, 10, 92);
         doc.text('Numéro de sécurité sociale du patient : ' + $patSocialNumberStore, 10, 102);
         doc.text('Remarques du patient : ' + $patReviewStore, 10, 112);
-        doc.save('rapport-patient-' + $patNameStore + '-' + $patFirstnameStore + '-' + $docDateStore + '.pdf');
+        doc.addPage();
         doc.addImage(LogoPdf, 'JPEG', 10, 10, 120, 20);
         doc.text('Informations du docteur :', 10, 42);
         doc.text('Date de la consultation : ' + $docDateStore, 10, 52);
@@ -31,7 +31,7 @@
         doc.text('Prénom du médecin : ' + $docFirstnameStore, 10, 72);
         doc.text('Numéro du médecin : ' + $docNumberStore, 10, 82);
         doc.text('Remarques du médecin : ' + $docReviewStore, 10, 92);
-        doc.addPage();
+        doc.save('rapport-patient-' + $patNameStore + '-' + $patFirstnameStore + '-' + $docDateStore + '.pdf');
         return doc;
     }
 </script>
