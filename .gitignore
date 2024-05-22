@@ -1,13 +1,1 @@
-/back/node_modules
-/back/.env
-/front/node_modules
-/front/.env
-*/.env
-*/.env.*
-*/.env.local
-*/.env.development.local
-*/.env.test.local
-*/.env.production.local
-*/node_modules
-/node_modules
-.DS_Store
+node_modules
