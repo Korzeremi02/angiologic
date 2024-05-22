@@ -22,7 +22,7 @@ export default function Home() {
     <aside id="separator-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
       <div class="h-full px-3 py-4 overflow-y-auto  bg-gray-800">
           <ul class="space-y-2 font-medium">
-            <p class="w-full h-fit text-xl font-semibold ml-3">AngioWorks</p>
+            <p class="w-full h-fit text-white text-xl font-semibold ml-3">AngioWorks</p>
             <li>
                 <a href="/" class="flex items-center p-2  rounded-lg text-white  hover:bg-gray-700 group">
                   <img src={svgHome} class="w-5 h-5" aria-hidden="true"></img>
