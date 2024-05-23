@@ -3,6 +3,5 @@
   "/page": "app/page.js",
   "/draw/page": "app/draw/page.js",
   "/infos/page": "app/infos/page.js",
-  "/export/page": "app/export/page.js",
-  "/help/page": "app/help/page.js"
+  "/export/page": "app/export/page.js"
 }

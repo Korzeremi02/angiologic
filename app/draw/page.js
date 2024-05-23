@@ -81,10 +81,10 @@ export default function Home() {
 
     <div class="p-4 sm:ml-64 flex flex-col h-screen w-min-fit">
       <div class="p-4 h-4/5 border-2 w-full  border-dashed rounded-lg border-gray-700">
-        <canvas class="h-full w-full bg-red-500"></canvas>
+        <canvas class="h-full w-full bg-white cursor-crosshair"></canvas>
       </div>
       <div class="p-4 h-1/5 w-full border-2  border-dashed rounded-lg border-gray-700 mt-6">
-
+        
       </div>
     </div>
   </div>
