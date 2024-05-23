@@ -82,11 +82,14 @@ export default function Home() {
     <div class="p-4 sm:ml-64">
       <div class="p-4 border-2 h-auto border-gray-200 border-dashed rounded-lg">
           <p class="w-full h-8 text-4xl text-white font-semibold text-left">Bienvenue</p>
+          <p class="w-11/12 text-base font-normal text-white text-left leading-none"><br />Pour commencer,<br />Cliquer sur la section <b>Fichiers</b> pour importer ou créer un nouveau fichier patient.</p>
+      </div>
+      <div class="p-4 my-3 border-2 h-auto border-gray-200 border-dashed rounded-lg">
           <p class="w-11/12 text-2xl font-bold text-white text-left mt-4 mb-2">Message important</p>
           <p class="w-11/12 text-base font-semibold text-white text-left">Version alpha de AngioWorks</p>
           <p class="w-11/12 text-base font-normal text-white text-left mb-3 leading-none">Nous sommes ravi de vous compter parmis les bénéficiaires de AngioWorks. Vous trouvez pléthore de fonctionnalités pour vous accompagner au mieux à travers vos consultations. <br /><br /> Etant donné le statut de version alpha de notre application WEB, vous pouvez être confronté à différents comportements anormaux tels que des erreurs ou des bugs. Merci de bien vouloir recenser ces incidents à l'adresse suivante :  <br /><b>support@angioworks.com</b><br /><br />Nous vous remercions pour votre confiance.  </p>
       </div>
-      <div class="p-4 mt-3 border-2 h-auto text-white border-gray-200 border-dashed rounded-lg">
+      <div class="p-4 my-3 border-2 h-auto text-white border-gray-200 border-dashed rounded-lg">
           <p class="w-11/12 text-2xl font-bold text-white text-left mb-2">Nouveauté</p>
           <p class="w-11/12 text-base font-semibold text-white text-left">Prise en charge de la version mobile et compte personnel</p>
           <p class="w-11/12 text-base font-normal text-white text-left mb-3 leading-none">Nous sommes ravi de vous annoncer que l'application WEB <b>AngioWorks</b> est à présent pleinement disponible pour l'ensemble de vos supports. Il est désormais plus facile d'effectuer des consultations muni de son smartphone ou de sa tablette. <br /><br /> Nous sommes également ravi de vous annoncer l'arrivée prochaine des comptes personnels, vous permettant de pouvoir enregistrer vos fichiers et vos paramètres dans le cloud. </p>

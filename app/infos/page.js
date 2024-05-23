@@ -58,14 +58,14 @@ export default function Home() {
                 <a href="#" class="flex items-center p-2  transition duration-75 rounded-lg hover:bg-gray-700 text-white group">
                   <img src={svgProfile} class="w-5 h-5" aria-hidden="true"></img>
                   <span class="ms-3">Mon profil</span>
-                  <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full bg-gray-700 text-gray-300">Soon</span>
+                  <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium rounded-full bg-gray-700 text-gray-300">Soon</span>
                 </a>
             </li>
             <li>
                 <a href="#" class="flex items-center p-2  transition duration-75 rounded-lg hover:bg-gray-700 text-white group">
                   <img src={svgSettings} class="w-5 h-5" aria-hidden="true"></img>
                   <span class="ms-3">Paramètres</span>
-                  <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full bg-gray-700 text-gray-300">Soon</span>
+                  <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium rounded-full bg-gray-700 text-gray-300">Soon</span>
                 </a>
             </li>
             <li>
