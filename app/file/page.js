@@ -85,11 +85,11 @@ export default function Home() {
           <p class="w-11/12 text-4xl font-bold text-white text-left leading-none">Fichiers</p>
           <p class="w-11/12 text-base font-bold text-white text-left leading-none mt-2">Que voulez vous faire ?</p>
           <div class="h-5/6 w-full flex flex-col justify-center items-center">
-            <button class="h-1/2 w-1/2 flex flex-col justify-center items-center">
+            <button class="h-1/2 w-1/2 flex flex-col justify-center items-center hover:h-4/5 transition-all duration-100 delay-100">
               <img src={svgNew} class="h-1/2 w-auto"></img>
               <p class="text-white">Créer un nouveau fichier</p>
             </button>
-            <button class="h-1/2 w-full flex flex-col justify-center">
+            <button class="h-1/2 w-full flex flex-col justify-center hover:h-4/5 transition-all duration-100 delay-100">
               <img src={svgNote} class="h-1/2 w-auto"></img>
               <p class="text-white">Importer un fichier depuis votre appareil</p>
             </button>
